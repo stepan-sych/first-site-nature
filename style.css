@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: cadetblue;
+}
+
+.header {
+    display: flex;
+    background-color: black;
+    height: 100px;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+
+}
+
+.menu {
+    display: flex;
+    background-color: #312c2c;
+    height: 50px;
+    width: 164px;
+    align-self: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icons {
+    display: flex;
+    background-color: #312c2c;
+    height: 50px;
+    width: 164px;
+    align-self: center;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.fa-facebook-f {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-instagram {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-youtube {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-telegram {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-brands {
+
+}
+
