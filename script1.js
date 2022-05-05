@@ -119,6 +119,18 @@ for (let element of elementsCards) {
     cardsBox.insertAdjacentHTML("beforeend", htmlCode);
 }
 /*---------------------------------------------------------------*/
+function EnableDisable(form_input) {
+    let submitBtn = document.getElementById("submitBtn");
+
+    if (form_input.value.trim() !== '') {
+        submitBtn.disabled = false;
+    } else {
+        submitBtn.disabled = true;
+    }
+}
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('form');
     form.addEventListener('submit', formSend);
@@ -128,15 +140,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let error = formValidate(form);
 
-        let formDate = new FormData(form);
-
         if (error === 0) {
             form.submit();
         } else {
         }
     }
 
-    function formValidate(form) {
+    function formValidate() {
         let error = 0;
         let formReq = document.querySelectorAll('._req');
 
@@ -173,10 +183,11 @@ document.addEventListener('DOMContentLoaded', function () {
         input.classList.remove('_error');
     }
 
-    function emailTest(input) {
+    const emailTest = (input) => {
         return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
     }
 });
+
 
 
  
