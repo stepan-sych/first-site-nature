@@ -119,15 +119,7 @@ for (let element of elementsCards) {
     cardsBox.insertAdjacentHTML("beforeend", htmlCode);
 }
 /*---------------------------------------------------------------*/
-// function EnableDisable(name) {
-//     let submitBtn = document.getElementById("submitBtn");
-//
-//     if (name.value.trim() !== '') {
-//         submitBtn.disabled = false;
-//     } else {
-//         submitBtn.disabled = true;
-//     }
-// }s
+
 function EnableDisable() {
     let elements = document.querySelectorAll("#name, #mail, #phone");
     let submitBtn = document.getElementById("submitBtn");
@@ -214,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const nameTest = (input) => {
-        return /^[0-9,!@#$%^&*)(_/?\-=.`'"|~\]\[₴№;:}{\\]/.test(input.value);
+        return /^[0-9,!@#$%^&*)(_/?\-=.`'"|~\]\[₴№;:}{\\><]/.test(input.value);
     }
 
     const telNumTest = (input) => {
