@@ -39,12 +39,12 @@
         <form id="form" name="regForm" action="#">
             <div class="valid_container">
                 <label for="name">Name:</label>
-                <input tabindex="1" placeholder="Enter name" type="text" id="name" class="form_input _req" name="username" onkeyup="EnableDisable(this)">
+                <input tabindex="1" placeholder="Enter name" type="text" id="name" class="form_input _req _name" name="username" onkeyup="EnableDisable()">
                 <label for="mail">Email:</label>
-                <input tabindex="2" placeholder="Enter email" type="text" id="mail" class="form_input _req _email" onkeyup="EnableDisable(this)" name="email">
+                <input tabindex="2" placeholder="Enter email" type="text" id="mail" class="form_input _req _email" onkeyup="EnableDisable()" name="email">
                 <label for="phone">Number phone:</label>
-                <input tabindex="3" placeholder="Enter number" type="tel" id="phone" class="form_input _req" onkeyup="EnableDisable(this)" name="userphone">
-                <button tabindex="4" id="submitBtn" type="submit" disabled="disabled">Submit</button>
+                <input tabindex="3" placeholder="Enter number" type="tel" id="phone" class="form_input _req _tel" onkeyup="EnableDisable()" name="userphone">
+                <button tabindex="4" id="submitBtn" type="submit" disabled>Submit</button>
             </div>
         </form>
     </footer>

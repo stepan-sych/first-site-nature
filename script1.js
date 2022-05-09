@@ -119,16 +119,32 @@ for (let element of elementsCards) {
     cardsBox.insertAdjacentHTML("beforeend", htmlCode);
 }
 /*---------------------------------------------------------------*/
-function EnableDisable(form_input) {
+// function EnableDisable(name) {
+//     let submitBtn = document.getElementById("submitBtn");
+//
+//     if (name.value.trim() !== '') {
+//         submitBtn.disabled = false;
+//     } else {
+//         submitBtn.disabled = true;
+//     }
+// }s
+function EnableDisable() {
+    let elements = document.querySelectorAll("#name, #mail, #phone");
     let submitBtn = document.getElementById("submitBtn");
-
-    if (form_input.value.trim() !== '') {
-        submitBtn.disabled = false;
-    } else {
-        submitBtn.disabled = true;
+    let nameInput = document.getElementById("name");
+    let mailInput = document.getElementById("mail");
+    let phoneInput = document.getElementById("phone");
+    submitBtn.disabled = true;
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].addEventListener("keyup", function () {
+            if (nameInput.value.replace(/\s+/g, '') !== "" && mailInput.value.replace(/\s+/g, '') !== "" && phoneInput.value.replace(/\s+/g, '') !== "") {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        });
     }
 }
-
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -159,11 +175,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     formAddError(input);
                     error++;
                 }
+            } else if (input.classList.contains('_name')) {
+                if (nameTest(input)) {
+                    formAddError(input);
+                    error++;
+                }
+            } else if (input.classList.contains('_tel')) {
+                if (telNumTest(input)) {
+                    formAddError(input);
+                    error++;
+                }
             } else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
                 formAddError(input);
                 error++;
             } else {
-                if (input.value === '') {
+                if (input.value === "") {
                     formAddError(input);
                     error++;
                 }
@@ -185,6 +211,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const emailTest = (input) => {
         return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+    }
+
+    const nameTest = (input) => {
+        return /^[0-9,!@#$%^&*)(_/?\-=.`'"|~\]\[₴№;:}{\\]/.test(input.value);
+    }
+
+    const telNumTest = (input) => {
+        return !/^[0-9]*$/.test(input.value);
     }
 });
 
