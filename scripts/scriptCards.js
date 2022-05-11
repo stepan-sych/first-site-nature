@@ -38,8 +38,8 @@ let elementsCards = [{
 
 let cardsBox = document.getElementById("cards_box");
 
-for (let element of elementsCards) {
-    let htmlCode = " <div class=\"cards_block\">\n" +
+function appendToHtml(element) {
+    return  " <div class=\"cards_block\">\n" +
         "            <div class=\"image_cards\">\n" +
         "                <img src=" + element.srcImage + " alt=\"\">\n" +
         "            </div>\n" +
@@ -53,5 +53,9 @@ for (let element of elementsCards) {
         "                <a href=\"#\"><span>Опис природи</span></a>\n" +
         "                <span><i class=\"fa-regular fa-eye\"></i></span>\n" +
         "            </div>";
+}
+
+for (let element of elementsCards) {
+    let htmlCode = appendToHtml(element);
     cardsBox.insertAdjacentHTML("beforeend", htmlCode);
 }

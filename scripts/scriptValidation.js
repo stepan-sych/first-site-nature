@@ -5,14 +5,11 @@ const EnableDisable = () => {
     let mailInput = document.getElementById("mail");
     let phoneInput = document.getElementById("phone");
     submitBtn.disabled = true;
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].addEventListener("keyup", function () {
-            if (nameInput.value.replace(/\s+/g, '') !== "" && mailInput.value.replace(/\s+/g, '') !== "" && phoneInput.value.replace(/\s+/g, '') !== "") {
-                submitBtn.disabled = false;
-            } else {
-                submitBtn.disabled = true;
-            }
-        });
+    for (const element of elements) {
+        element.addEventListener("keyup", () =>
+            submitBtn.disabled = nameInput.value.trim() === ""
+                || mailInput.value.trim() === ""
+                || phoneInput.value.trim() === "");
     }
 }
 
