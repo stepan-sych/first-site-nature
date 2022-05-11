@@ -15,17 +15,7 @@
                 <span></span>
             </div>
             <nav class="menu">
-                <ul class="header_list">
-                    <li>
-                        <a href="#" class="header_link">Головна</a>
-                    </li>
-                    <li>
-                        <a href="#" class="header_link">Корисне</a>
-                    </li>
-                    <li>
-                        <a href="#" class="header_link">Контакти</a>
-                    </li>
-                </ul>
+                <ul class="header_list" id="nav_menu"></ul>
             </nav>
         </div>
         <div class="icons" id="iconsJs">
@@ -39,11 +29,14 @@
         <form id="form" name="regForm" action="#">
             <div class="valid_container">
                 <label for="name">Name:</label>
-                <input tabindex="1" placeholder="Enter name" type="text" id="name" class="form_input _req _name" name="username" onkeyup="EnableDisable()">
+                <input tabindex="1" placeholder="Enter name" type="text" id="name" class="form_input _req _name"
+                       name="username" onkeyup="EnableDisable()">
                 <label for="mail">Email:</label>
-                <input tabindex="2" placeholder="Enter email" type="text" id="mail" class="form_input _req _email" onkeyup="EnableDisable()" name="email">
+                <input tabindex="2" placeholder="Enter email" type="text" id="mail" class="form_input _req _email"
+                       onkeyup="EnableDisable()" name="email">
                 <label for="phone">Number phone:</label>
-                <input tabindex="3" placeholder="Enter number" type="tel" id="phone" class="form_input _req _tel" onkeyup="EnableDisable()" name="userphone">
+                <input tabindex="3" placeholder="Enter number" type="tel" id="phone" class="form_input _req _tel"
+                       onkeyup="EnableDisable()" name="userphone">
                 <button tabindex="4" id="submitBtn" type="submit" disabled>Submit</button>
             </div>
         </form>
@@ -51,6 +44,8 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
-<script src="script1.js"></script>
+<script src="scripts/scriptDifferent.js"></script>
+<script src="scripts/scriptCards.js"></script>
+<script src="scripts/scriptValidation.js"></script>
 </body>
 </html>

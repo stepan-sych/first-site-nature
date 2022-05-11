@@ -65,8 +65,6 @@ img {
     vertical-align: top;
 }
 
-/*------------------------------------------*/
-
 
 body {
     background-color: #2c604a;
@@ -194,7 +192,6 @@ body {
     }
 }
 
-
 .icons {
     display: flex;
     background-color: black;
@@ -209,31 +206,6 @@ body {
     background-color: black;
     color: white;
 }
-
-/*.fa-facebook-f {*/
-/*    background: black;*/
-/*    color: white;*/
-/*}*/
-
-/*.fa-twitter {*/
-/*    background: black;*/
-/*    color: white;*/
-/*}*/
-
-/*.fa-instagram {*/
-/*    background: black;*/
-/*    color: white;*/
-/*}*/
-
-/*.fa-youtube {*/
-/*    background: black;*/
-/*    color: white;*/
-/*}*/
-
-/*.fa-telegram {*/
-/*    background: black;*/
-/*    color: white;*/
-/*}*/
 
 .cards_container {
     display: flex;
@@ -361,12 +333,7 @@ footer label {
     padding: 0 10px 0 0;
     color: #050505;
 }
+
 .form_input._error {
     box-shadow: 0 0 15px red;
 }
-
-
-
-
-
-
