@@ -1,12 +1,11 @@
-"use strict"
 let arrIcons = [{href: "https://www.facebook.com/", clas: "fa-facebook-f"},
     {href: "https://www.instagram.com/", clas: "fa-instagram"},
     {href: "https://www.twitter.com/", clas: "fa-twitter"},
     {href: "https://www.youtube.com/", clas: "fa-youtube"},
     {href: "https://web.telegram.org/k/", clas: "fa-telegram"},
 ];
-let icons = document.getElementById("iconsJs")
 
+let icons = document.getElementById("iconsJs")
 for (let arrIcon of arrIcons) {
     let tegA = document.createElement("a");
     tegA.setAttribute("href", arrIcon.href);
@@ -21,29 +20,21 @@ $(document).ready(() => {
     });
 });
 
-let myButton = document.getElementById("myBtn");
 window.onscroll = () => {
-    scrollFunction()
+    let myButton = document.getElementById("myBtn");
+    myButton.style.display = document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ?
+        "block" : "none";
 };
 
-const scrollFunction = () => {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        myButton.style.display = "block";
-    } else {
-        myButton.style.display = "none";
-    }
-}
-
-let duration_ms = 800;
-$('#myBtn').click(() => {
-    $('html, body').animate({scrollTop: 0}, duration_ms);
+$('#myBtn').click(function () {
+    $('html, body').animate({scrollTop: 0}, 800);
 });
 
 let navElements = [{nameLink: "Головна"}, {nameLink: "Корисне"}, {nameLink: "Контакти"}];
 let navMenu = document.getElementById("nav_menu");
-for (let i = 0; i < navElements.length; i++) {
-    let htmlCode = "<li>" +
-        "           <a href=\"#\" class=\"header_link\">" + navElements[i].nameLink + "</a>" +
+for (let elem of navElements) {
+    let menuItem = "<li>" +
+        "           <a href=\"#\" class=\"header_link\">" + elem.nameLink + "</a>" +
         "           </li>";
-    navMenu.insertAdjacentHTML("beforeend", htmlCode);
+    navMenu.insertAdjacentHTML("beforeend", menuItem);
 }
