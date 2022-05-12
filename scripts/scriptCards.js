@@ -38,20 +38,20 @@ let elementsCards = [{
 
 let cardsBox = document.getElementById("cards_box");
 
-function appendToHtml(element) {
-    return  " <div class=\"cards_block\">\n" +
-        "            <div class=\"image_cards\">\n" +
-        "                <img src=" + element.srcImage + " alt=\"\">\n" +
-        "            </div>\n" +
-        "            <div class=\"cards_title\">\n" +
-        "                <a href=\"#\"><span><h2 class=\"fa-regular fa-clipboard\">" + element.title + "</h2></span></a>\n" +
-        "            </div>\n" +
-        "            <div class=\"text_cards\">\n" +
-        "                <p>" + element.paragraf + "</p>\n" +
-        "            </div>\n" +
-        "            <div class=\"category\">\n" +
-        "                <a href=\"#\"><span>Опис природи</span></a>\n" +
-        "                <span><i class=\"fa-regular fa-eye\"></i></span>\n" +
+const appendToHtml = (element) => {
+    return  " <div class=\"cards_block\">" +
+        "            <div class=\"image_cards\">" +
+        "                <img src=" + element.srcImage + " alt=\"\">" +
+        "            </div>" +
+        "            <div class=\"cards_title\">" +
+        "                <a href=\"#\"><span><h2 class=\"fa-regular fa-clipboard\">" + element.title + "</h2></span></a>" +
+        "            </div>" +
+        "            <div class=\"text_cards\">" +
+        "                <p>" + element.paragraf + "</p>" +
+        "            </div>" +
+        "            <div class=\"category\">" +
+        "                <a href=\"#\"><span>Опис природи</span></a>" +
+        "                <span><i class=\"fa-regular fa-eye\"></i></span>" +
         "            </div>";
 }
 

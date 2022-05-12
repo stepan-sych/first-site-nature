@@ -15,17 +15,14 @@ const EnableDisable = () => {
 
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('form');
-    form.addEventListener('submit', formSend);
-
-    async function formSend(e) {
+    const formSend = async (e) => {
         e.preventDefault();
-
-        let error = formValidate(form);
-
+        let error = formValidate();
         if (error === 0) {
             form.submit();
         }
     }
+    form.addEventListener('submit', formSend);
 
     const formValidate = () => {
         let error = 0;
@@ -59,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     error++;
                 }
             }
-
         }
         return error;
     }
@@ -68,20 +64,16 @@ document.addEventListener('DOMContentLoaded', function () {
         input.parentElement.classList.add('_error');
         input.classList.add('_error');
     }
-
     const formRemoveError = (input) => {
         input.parentElement.classList.remove('_error');
         input.classList.remove('_error');
     }
-
     const emailTest = (input) => {
         return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
     }
-
     const nameTest = (input) => {
         return /^[0-9,!@#$%^&*)(_/?\-=.`'"|~\]\[₴№;:}{\\><]/.test(input.value);
     }
-
     const telNumTest = (input) => {
         return !/^[0-9]*$/.test(input.value);
     }
