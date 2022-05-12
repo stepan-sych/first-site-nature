@@ -10,19 +10,19 @@ let icons = document.getElementById("iconsJs")
 for (let arrIcon of arrIcons) {
     let tegA = document.createElement("a");
     tegA.setAttribute("href", arrIcon.href);
-    tegA.setAttribute("class", "fa-brands " +  arrIcon.clas);
+    tegA.setAttribute("class", "fa-brands " + arrIcon.clas);
     tegA.setAttribute("target", "_blank")
     icons.appendChild(tegA);
 }
 
-$(document).ready(function () {
-    $('.header_burger').click(function (event) {
+$(document).ready(() => {
+    $('.header_burger').click(() => {
         $('.header_burger, .menu').toggleClass('active');
     });
 });
 
 let myButton = document.getElementById("myBtn");
-window.onscroll = function () {
+window.onscroll = () => {
     scrollFunction()
 };
 
@@ -35,15 +35,15 @@ const scrollFunction = () => {
 }
 
 let duration_ms = 800;
-$('#myBtn').click(function () {
+$('#myBtn').click(() => {
     $('html, body').animate({scrollTop: 0}, duration_ms);
 });
 
 let navElements = [{nameLink: "Головна"}, {nameLink: "Корисне"}, {nameLink: "Контакти"}];
 let navMenu = document.getElementById("nav_menu");
 for (let i = 0; i < navElements.length; i++) {
-    let htmlCode = "<li>\n" +
-        "           <a href=\"#\" class=\"header_link\">" + navElements[i].nameLink + "</a>\n" +
+    let htmlCode = "<li>" +
+        "           <a href=\"#\" class=\"header_link\">" + navElements[i].nameLink + "</a>" +
         "           </li>";
     navMenu.insertAdjacentHTML("beforeend", htmlCode);
 }

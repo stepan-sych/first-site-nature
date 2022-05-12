@@ -6,7 +6,7 @@ const EnableDisable = () => {
     let phoneInput = document.getElementById("phone");
     submitBtn.disabled = true;
     for (let i = 0; i < elements.length; i++) {
-        elements[i].addEventListener("keyup", function () {
+        elements[i].addEventListener("keyup", () => {
             if (nameInput.value.replace(/\s+/g, '') !== "" && mailInput.value.replace(/\s+/g, '') !== "" && phoneInput.value.replace(/\s+/g, '') !== "") {
                 submitBtn.disabled = false;
             } else {
@@ -16,11 +16,10 @@ const EnableDisable = () => {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form');
-    form.addEventListener('submit', formSend);
 
-    async function formSend(e) {
+    const formSend = async (e) => {
         e.preventDefault();
 
         let error = formValidate(form);
@@ -29,6 +28,8 @@ document.addEventListener('DOMContentLoaded', function () {
             form.submit();
         }
     }
+    form.addEventListener('submit', formSend);
+
 
     const formValidate = () => {
         let error = 0;
