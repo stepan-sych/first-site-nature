@@ -1,16 +1,13 @@
 const EnableDisable = () => {
     let elements = document.querySelectorAll("#name, #mail, #phone");
-    let submitBtn = document.getElementById("submitBtn");
-    let nameInput = document.getElementById("name");
-    let mailInput = document.getElementById("mail");
-    let phoneInput = document.getElementById("phone");
-    submitBtn.disabled = true;
-    for (const element of elements) {
-        element.addEventListener("keyup", () =>
-            submitBtn.disabled = nameInput.value.trim() === ""
-                || mailInput.value.trim() === ""
-                || phoneInput.value.trim() === "");
+    let submitBtn = false;
+    for (const el of elements) {
+        if (el.value.trim() === "") {
+            submitBtn = true;
+            break;
+        }
     }
+    document.getElementById("submitBtn").disabled = submitBtn;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
