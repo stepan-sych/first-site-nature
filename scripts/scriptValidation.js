@@ -18,44 +18,32 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isValidForm === true) {
             form.submit();
         }
-        form.addEventListener('submit', formSend);
     }
+    form.addEventListener('submit', formSend);
 });
 
 const formValidate = () => {
     let isValid = true;
-    let formReq = document.querySelectorAll('#email, #name, #tel'); //Todo leave class or ids
+    let formReq = document.querySelectorAll('._email, ._name, ._tel'); //Todo leave class or ids
 
-    const validateField = (field, fieldHasError) => {
-        if (fieldHasError) {
+    const validateField = (field, checkFieldCallback) => {
+        if (checkFieldCallback(field)) {
             formAddError(field);
             isValid = false;
         } else {
             formRemoveError(field)
         }
     }
-
     for (const inputTag of formReq) {
-        formRemoveError(inputTag); //Todo remove
-
         if (inputTag.classList.contains('_email')) {
-            let hasError = emailTest(inputTag);
-            validateField(inputTag, hasError);
+            validateField(inputTag, emailTest);
         } else if (inputTag.classList.contains('_name')) {
-            if (nameTest(inputTag)) {
-                formAddError(inputTag);
-                isValid = false;
-            }
+            validateField(inputTag, nameTest);
         } else if (inputTag.classList.contains('_tel')) {
-            if (telNumTest(inputTag)) {
-                formAddError(inputTag);
-                isValid = false;
-            }
-        } else {
-            if (inputTag.value === "") { //Todo remove
-                formAddError(inputTag);
-                isValid = false;
-            }
+            validateField(inputTag, telNumTest);
+        } else if (inputTag.value === "") { //Todo remove
+            formAddError(inputTag);
+            isValid = false;
         }
     }
     return isValid;
