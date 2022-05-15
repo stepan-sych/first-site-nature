@@ -26,7 +26,7 @@ window.onscroll = () => {
         "block" : "none";
 };
 
-$('#myBtn').click(function () {
+$('#myBtn').click(() => {
     $('html, body').animate({scrollTop: 0}, 800);
 });
 
