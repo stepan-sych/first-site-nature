@@ -36,17 +36,17 @@ let elementsCards = [{
     },
 ];
 
-let cardsBox = document.getElementById("cards_box");
+let cardsBox = document.getElementById("cards-box");
 
 const appendToHtml = (element) => {
-    return  " <div class=\"cards_block\">" +
-        "            <div class=\"image_cards\">" +
+    return  " <div class=\"cards-block\">" +
+        "            <div class=\"image-cards\">" +
         "                <img src=" + element.srcImage + " alt=\"\">" +
         "            </div>" +
-        "            <div class=\"cards_title\">" +
+        "            <div class=\"cards-title\">" +
         "                <a href=\"#\"><span><h2 class=\"fa-regular fa-clipboard\">" + element.title + "</h2></span></a>" +
         "            </div>" +
-        "            <div class=\"text_cards\">" +
+        "            <div class=\"text-cards\">" +
         "                <p>" + element.paragraf + "</p>" +
         "            </div>" +
         "            <div class=\"category\">" +

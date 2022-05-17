@@ -10,8 +10,8 @@ const EnableDisable = () => {
     document.getElementById("submitBtn").disabled = submitBtn;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('form');
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("form");
     const formSend = async (e) => {
         e.preventDefault();
         let isValidForm = formValidate();
@@ -19,12 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
             form.submit();
         }
     }
-    form.addEventListener('submit', formSend);
+    form.addEventListener("submit", formSend);
 });
 
 const formValidate = () => {
     let isValid = true;
-    let formReq = document.querySelectorAll('._email, ._name, ._tel'); //Todo leave class or ids
+    let formReq = document.querySelectorAll("#mail, #name, #phone"); //Todo leave class or ids
 
     const validateField = (field, checkFieldCallback) => {
         if (checkFieldCallback(field)) {
@@ -35,12 +35,12 @@ const formValidate = () => {
         }
     }
     for (const inputTag of formReq) {
-        if (inputTag.classList.contains('_email')) {
-            validateField(inputTag, emailTest);
-        } else if (inputTag.classList.contains('_name')) {
-            validateField(inputTag, nameTest);
-        } else if (inputTag.classList.contains('_tel')) {
-            validateField(inputTag, telNumTest);
+        if (inputTag.classList.contains("-email")) {
+            validateField(inputTag, emailValidation);
+        } else if (inputTag.classList.contains("-name")) {
+            validateField(inputTag, nameValidation);
+        } else if (inputTag.classList.contains("-tel")) {
+            validateField(inputTag, telNumValidation);
         } else if (inputTag.value === "") { //Todo remove
             formAddError(inputTag);
             isValid = false;
@@ -50,23 +50,23 @@ const formValidate = () => {
 }
 
 const formAddError = (input) => {
-    input.parentElement.classList.add('_error');
-    input.classList.add('_error');
+    input.parentElement.classList.add('-error');
+    input.classList.add('-error');
 }
 
 const formRemoveError = (input) => {
-    input.parentElement.classList.remove('_error');
-    input.classList.remove('_error');
+    input.parentElement.classList.remove('-error');
+    input.classList.remove('-error');
 }
 
-const emailTest = (input) => {
+const emailValidation = (input) => {
     return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 }
 
-const nameTest = (input) => {
+const nameValidation = (input) => {
     return /^[0-9,!@#$%^&*)(_/?\-=.`'"|~\]\[₴№;:}{\\><]/.test(input.value);
 }
 
-const telNumTest = (input) => {
+const telNumValidation = (input) => {
     return !/^[0-9]*$/.test(input.value);
 }

@@ -15,8 +15,8 @@ for (let arrIcon of arrIcons) {
 }
 
 $(document).ready(() => {
-    $('.header_burger').click(() => {
-        $('.header_burger, .menu').toggleClass('active');
+    $('.header-burger').click(() => {
+        $('.header-burger, .menu').toggleClass('active');
     });
 });
 
@@ -31,10 +31,10 @@ $('#myBtn').click(() => {
 });
 
 let navElements = [{nameLink: "Головна"}, {nameLink: "Корисне"}, {nameLink: "Контакти"}];
-let navMenu = document.getElementById("nav_menu");
+let navMenu = document.getElementById("nav-menu");
 for (let elem of navElements) {
     let menuItem = "<li>" +
-        "           <a href=\"#\" class=\"header_link\">" + elem.nameLink + "</a>" +
+        "           <a href=\"#\" class=\"header-link\">" + elem.nameLink + "</a>" +
         "           </li>";
     navMenu.insertAdjacentHTML("beforeend", menuItem);
 }
