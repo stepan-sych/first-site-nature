@@ -1,80 +1,75 @@
-const EnableDisable = () => {
+document.addEventListener("DOMContentLoaded", () => {
     let elements = document.querySelectorAll("#name, #mail, #phone");
-    let submitBtn = document.getElementById("submitBtn");
-    let nameInput = document.getElementById("name");
-    let mailInput = document.getElementById("mail");
-    let phoneInput = document.getElementById("phone");
-    submitBtn.disabled = true;
     for (const element of elements) {
-        element.addEventListener("keyup", () =>
-            submitBtn.disabled = nameInput.value.trim() === ""
-                || mailInput.value.trim() === ""
-                || phoneInput.value.trim() === "");
+        element.addEventListener("keyup", () => {
+            let submitBtn = false;
+            for (const el of elements) {
+                if (el.value.trim() === "") {
+                    submitBtn = true;
+                }
+                document.getElementById("submitBtn").disabled = submitBtn;
+            }
+        });
     }
-}
 
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('form');
-    const formSend = async (e) => {
+    const form = document.getElementById("form");
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        let error = formValidate();
-        if (error === 0) {
+        let isValidForm = formValidate();
+        if (isValidForm === true) {
             form.submit();
         }
-    }
-    form.addEventListener('submit', formSend);
-
-    const formValidate = () => {
-        let error = 0;
-        let formReq = document.querySelectorAll('._req');
-
-        for (let i = 0; i < formReq.length; i++) {
-            const input = formReq[i];
-            formRemoveError(input);
-
-            if (input.classList.contains('_email')) {
-                if (emailTest(input)) {
-                    formAddError(input);
-                    error++;
-                }
-            } else if (input.classList.contains('_name')) {
-                if (nameTest(input)) {
-                    formAddError(input);
-                    error++;
-                }
-            } else if (input.classList.contains('_tel')) {
-                if (telNumTest(input)) {
-                    formAddError(input);
-                    error++;
-                }
-            } else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
-                formAddError(input);
-                error++;
-            } else {
-                if (input.value === "") {
-                    formAddError(input);
-                    error++;
-                }
-            }
-        }
-        return error;
-    }
-
-    const formAddError = (input) => {
-        input.parentElement.classList.add('_error');
-        input.classList.add('_error');
-    }
-    const formRemoveError = (input) => {
-        input.parentElement.classList.remove('_error');
-        input.classList.remove('_error');
-    }
-    const emailTest = (input) => {
-        return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
-    }
-    const nameTest = (input) => {
-        return /^[0-9,!@#$%^&*)(_/?\-=.`'"|~\]\[₴№;:}{\\><]/.test(input.value);
-    }
-    const telNumTest = (input) => {
-        return !/^[0-9]*$/.test(input.value);
-    }
+    });
 });
+
+const formValidate = () => {
+    let isValid = true;
+    let formInputs = document.querySelectorAll("#mail, #name, #phone");
+
+    const validateField = (field, checkFieldCallback) => {
+        if (checkFieldCallback(field.value)) {
+            formAddError(field);
+            isValid = false;
+        } else {
+            formRemoveError(field)
+        }
+    }
+    for (const inputTag of formInputs) {
+        console.log("inputTeg");
+        console.log(inputTag);
+        console.log("formInputs");
+        console.log(formInputs);
+        if (inputTag.id === "mail") {
+            validateField(inputTag, isEmailValidation);
+        } else if (inputTag.id === "name") {
+            validateField(inputTag, isNameValidation);
+        } else if (inputTag.id === "phone") {
+            validateField(inputTag, isTelNumValidation);
+        }
+    }
+    return isValid;
+}
+
+const isEmailValidation = (value) => {
+    return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(value);
+}
+
+const isNameValidation = (value) => {
+    return /^[0-9,!@#$%^&*)(_/?\-=.`'"|~\]\[₴№;:}{\\><]/.test(value);
+}
+
+const isTelNumValidation = (value) => {
+    return !/^[0-9]*$/.test(value);
+}
+
+const formAddError = (input) => {
+    console.log("input");
+    console.log(input.value);
+    input.parentElement.classList.add("error");
+    input.classList.add("error");
+}
+
+const formRemoveError = (input) => {
+    input.parentElement.classList.remove("error");
+    input.classList.remove("error");
+}
