@@ -84,9 +84,10 @@ body {
     padding-left: 40px;
     padding-right: 40px;
     align-items: center;
-
 }
-
+.header h1 {
+    color: white;
+}
 
 .header-burger {
     display: none;
