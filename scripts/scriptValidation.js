@@ -28,7 +28,7 @@ const formValidate = () => {
 
     const validateField = (field, checkFieldCallback) => {
         if (checkFieldCallback(field.value)) {
-            addClassError(field);
+            addErrorClass(field);
             isValid = false;
         } else {
             removeErrorClass(field)
@@ -58,7 +58,7 @@ const isTelNumValid = (value) => {
     return !/^[0-9]*$/.test(value);
 }
 
-const addClassError = (input) => {
+const addErrorClass = (input) => {
     input.parentElement.classList.add("error");
     input.classList.add("error");
 }

@@ -15,8 +15,8 @@ for (let arrIcon of arrIcons) {
 }
 
 $(document).ready(() => {
-    $('.header_burger').click(() => {
-        $('.header_burger, .menu').toggleClass('active');
+    $('.header-burger').click(() => {
+        $('.header-burger, .menu').toggleClass('active');
     });
 });
 
