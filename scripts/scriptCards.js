@@ -56,6 +56,5 @@ const appendToHtml = (element) => {
 }
 
 for (let element of elementsCards) {
-    let htmlCode = appendToHtml(element);
-    cardsBox.insertAdjacentHTML("beforeend", htmlCode);
+    cardsBox.insertAdjacentHTML("beforeend", appendToHtml(element));
 }

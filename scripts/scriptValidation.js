@@ -29,48 +29,42 @@ const formValidate = () => {
 
     const validateField = (field, checkFieldCallback) => {
         if (checkFieldCallback(field.value)) {
-            formAddError(field);
+            addErrorClass(field);
             isValid = false;
         } else {
-            formRemoveError(field)
+            removeErrorClass(field)
         }
     }
     for (const inputTag of formInputs) {
-        console.log("inputTeg");
-        console.log(inputTag);
-        console.log("formInputs");
-        console.log(formInputs);
         if (inputTag.id === "mail") {
-            validateField(inputTag, isEmailValidation); //todo rename
+            validateField(inputTag, isEmailValid);
         } else if (inputTag.id === "name") {
-            validateField(inputTag, isNameValidation);
+            validateField(inputTag, isNameValid);
         } else if (inputTag.id === "phone") {
-            validateField(inputTag, isTelNumValidation);
+            validateField(inputTag, isTelNumValid);
         }
     }
     return isValid;
 }
 
-const isEmailValidation = (value) => {
+const isEmailValid = (value) => {
     return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(value);
 }
 
-const isNameValidation = (value) => {
+const isNameValid = (value) => {
     return /^[0-9,!@#$%^&*)(_/?\-=.`'"|~\]\[₴№;:}{\\><]/.test(value);
 }
 
-const isTelNumValidation = (value) => {
+const isTelNumValid = (value) => {
     return !/^[0-9]*$/.test(value);
 }
 
-const formAddError = (input) => {
-    console.log("input");
-    console.log(input.value);
+const addErrorClass = (input) => {
     input.parentElement.classList.add("error");
     input.classList.add("error");
 }
 
-const formRemoveError = (input) => {
+const removeErrorClass = (input) => {
     input.parentElement.classList.remove("error");
     input.classList.remove("error");
 }
