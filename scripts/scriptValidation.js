@@ -31,7 +31,7 @@ const formValidate = () => {
             addClassError(field);
             isValid = false;
         } else {
-            removeClassError(field)
+            removeErrorClass(field)
         }
     }
     for (const inputTag of formInputs) {
@@ -63,7 +63,7 @@ const addClassError = (input) => {
     input.classList.add("error");
 }
 
-const removeClassError = (input) => {
+const removeErrorClass = (input) => {
     input.parentElement.classList.remove("error");
     input.classList.remove("error");
 }
