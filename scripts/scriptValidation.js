@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("submitBtn").disabled = submitBtn;
             }
         });
-
     }
 
     const form = document.getElementById("form");
